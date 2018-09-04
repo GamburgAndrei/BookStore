@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BookStore.Models.Player>
+    @{ 
+        ViewBag.Title = "Каталог игроков";
+        Layout = null;
+    }
+<h2>Каталог игроков</h2>
+<p>
+    @Html.ActionLink("Добавить игрока", "CreatePlayer")
+</p>
+<table>
+    <tr>
+        <th>Имя игрока</th>
+        <th>Возраст</th>
+        <th>Позиция</th>
+        <th>Команда</th>
+        <th></th>
+    </tr>
+    @foreach(var a in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(item=>a.Name)</td>
+            <td>@Html.DisplayFor(item=>a.Age)</td>
+            <td>@Html.DisplayFor(item=>a.Position)</td>
+            <td>@Html.DisplayFor(item=>a.team.Name)</td>
+            <td><p><a href="EditPlayer/@a.ID">Редактировать</a></p></td>
+            <td>@Html.ActionLink("Удалить","DeletePlayer")</td>
+            <td>@Html.ActionLink("Просмотреть","ViewPlayer")</td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Каталог команд","ViewTeam")
+</p>

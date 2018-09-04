@@ -1,0 +1,28 @@
+﻿@model BookStore.Models.Team
+    @{ 
+        ViewBag.Title = "Команда" + Model.Name;
+        Layout = null;
+    }
+<div>
+    <h4>Команда @Model.Name</h4>
+    <hr />
+    <dl>
+        <dt>Название</dt>
+        <dd>
+            @Html.DisplayFor(model=>model.Name)
+        </dd>
+        <dt>Тренер</dt>
+        <dd>
+            @Html.DisplayFor(model=>model.Coach)
+        </dd>
+        <dt>Игроки</dt>
+        <dd>
+            <ul>
+                @foreach(BookStore.Models.Player player in Model.Players)
+                {
+                    <li>@player.Name (@player.Position)</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>

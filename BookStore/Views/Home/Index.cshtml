@@ -1,0 +1,39 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>Распродажа книг</h3>
+    <table>
+        <tr class="page-header"><td><p>Название книги</p></td>
+        <td><p>Автор</p></td>
+        <td><p>Цена</p></td>
+        </tr>
+        @foreach (BookStore.Models.Book a in Model)
+        {
+            <tr>
+                <td><p>@a.Name</p></td>
+                <td><p>@a.Author</p></td>
+                <td><p>@a.Price</p></td>
+                <td><p><a href="Home/Buy/@a.ID">Купить</a></p></td>
+                <td><p><a href="Home/EditBook/@a.ID">Редактировать</a></p></td>
+                <td><p><a href="Home/BookView/@a.ID">Просмотреть</a></p></td>
+                <td><p><a href="Home/DeleteBook/@a.ID">Удалить</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
+
+@helper CreateList(string[] all) { 
+    <ul>
+        @foreach(string s in all)
+        {
+            <li>@s</li>
+        }
+    </ul>
+    }
+@{ 
+    string[] cities = new string[] { "Лондон", "Париж", "Брюсель" };
+}
+@{ 
+    string[] countries = new string[] { "Англия", "Франция", "Нидерланды" };
+}

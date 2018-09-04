@@ -1,0 +1,26 @@
+﻿@model BookStore.Models.Purchase
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h3>Форма покупки</h3>
+    @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+    {
+        <input type="hidden" value="@ViewBag.BookID" name="BookID" />
+        @Html.HiddenFor(m => m.BookID)
+        @Html.LabelFor(m => m.Person, "Введите свое имя")
+        <br />
+        @Html.TextBoxFor(m => m.Person)
+        <br /><br />
+        @Html.LabelFor(m => m.Address, "Введите свой адрес")
+        <br />
+        @Html.TextBoxFor(m => m.Address)
+        <p><input type="submit" value="Отправить" /></p>
+    }
+</div>
+
+
+

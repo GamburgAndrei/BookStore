@@ -1,0 +1,24 @@
+﻿
+    @{ 
+        ViewBag.Title = "Каталог команд";
+        Layout = null;
+    }
+    <h2>каталог команд</h2>
+<p>
+    @Html.ActionLink("Главная","Index")
+</p>
+<table>
+    <tr>
+        <th>Название команды</th>
+        <th>Тренет</th>
+    </tr>
+    @foreach(BookStore.Models.Team i in Model){
+    <tr>
+        <td>@Html.DisplayFor(item => i.Name)</td>
+        <td>@Html.DisplayFor(item => i.Coach)</td>
+        <td>@Html.ActionLink("Редактировать", "EditTeam")</td>
+        <td>@Html.ActionLink("Удалить", "DeleteTeam")</td>
+        <td><p><a href="TeamDetails/@i.ID">Просмотреть</a></p></td>
+    </tr>
+    }
+</table>
